@@ -133,7 +133,7 @@ function niceMetricMax(v){
 function withDataNote(extra=""){
   const m = dataMeta || {};
   const monthsDetected = m.monthsDetected ? `${m.monthsDetected} 个月` : `${months.length} 个月`;
-  return `数据来源：Data 文件夹；已匹配 KOL 视频 ${fmt(m.eligibleKolVideoRows || 0)} 条，转化记录 ${fmt(m.conversionRowsMatchedToKol || 0)} 条；覆盖 ${monthsDetected}${extra ? "；" + extra : ""}`;
+  return `已纳入 KOL 视频 ${fmt(m.eligibleKolVideoRows || 0)} 条，转化记录 ${fmt(m.conversionRowsMatchedToKol || 0)} 条；覆盖 ${monthsDetected}${extra ? "；" + extra : ""}`;
 }
 function insightItems(scope){
   const arr = (window.WEB_COPY && WEB_COPY.insights && WEB_COPY.insights[scope]) || (ACTIVE_DATA.insights && ACTIVE_DATA.insights[scope]) || [];
@@ -387,10 +387,10 @@ function distributionChart(){
 
 function homeRadarChart(){
   const metrics = [
-    {key:"videos", label:"KOL视频数", max:2000, fmt:v=>fmt(Math.round(v))},
-    {key:"channels", label:"覆盖博主数", max:600, fmt:v=>fmt(Math.round(v))},
+    {key:"videos", label:"KOL视频数", max:1500, fmt:v=>fmt(Math.round(v))},
+    {key:"channels", label:"覆盖博主数", max:350, fmt:v=>fmt(Math.round(v))},
     {key:"score", label:"转化链路得分", max:3, fmt:v=>Number(v||0).toFixed(2)},
-    {key:"comments", label:"每千播放评论数", max:3, fmt:v=>Number(v||0).toFixed(2)}
+    {key:"comments", label:"每千播放评论数", max:5, fmt:v=>Number(v||0).toFixed(2)}
   ];
   const cx=245, cy=215, r=122;
   const angle = i => (-90+i*360/metrics.length)*Math.PI/180;
@@ -432,10 +432,36 @@ function homeRadarChart(){
   </div></div>`;
 }
 
+
+function ugphoneBriefChain(){
+  const cfg = copy("ugphoneBriefChain", {});
+  const steps = cfg.steps || [];
+  if(!steps.length) return "";
+  return `<div class="card brief-chain-card">
+    <div class="brief-chain-head">
+      <div>
+        <div class="eyebrow">${cfg.eyebrow || "UGPHONE KOL BRIEF"}</div>
+        <h2>${cfg.title || "UgPhone KOL 视频要求对应的获客链路"}</h2>
+        <p>${cfg.subtitle || ""}</p>
+      </div>
+      <div class="brief-chain-badge">从内容要求到产品获客</div>
+    </div>
+    <div class="brief-chain-flow">
+      ${steps.map((s,i)=>`<div class="brief-step ${s.title==="链路承接"?"brief-step-highlight":""}" style="--i:${i+1}">
+        <div class="brief-step-num">${i+1}</div>
+        <div class="brief-step-title">${s.title}</div>
+        <div class="brief-step-body">${s.body}</div>
+      </div>${i<steps.length-1?'<div class="brief-arrow">→</div>':''}`).join("")}
+    </div>
+    <div class="brief-chain-footer">${cfg.footer || ""}</div>
+  </div>`;
+}
+
 function renderHome(){
   const steps = copy("frameworkSteps", []);
   document.querySelector("#home").innerHTML = header(copy("pages.home.title","YouTube KOL 转化链路分析"), copy("pages.home.subtitle","曝光 → 转化链路 → 互动验证 → 终端承接"))+
-  `<div class="grid brand-cards">${brands.map(b=>brandCard(b)).join("")}</div>
+  `${ugphoneBriefChain()}
+  <div class="grid brand-cards">${brands.map(b=>brandCard(b)).join("")}</div>
   <div class="two-col">${homeRadarChart()}
     ${insightPanel(copy("pages.home.insightTitle","核心洞察"), insightItems("home"))}
   </div>
@@ -585,11 +611,11 @@ function consistencyDetailTable(){
   const rows = ACTIVE_DATA.consistencyDetail || [];
   if(!rows.length) return "";
   const cols = Object.keys(rows[0]);
-  return `<div class="card chart-panel consistency-detail-panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h2>${copy("pages.performance.consistencyDetailTitle","一致性观察完整明细表")}</h2><span class="badge">${fmt(rows.length)} 行 × ${fmt(cols.length)} 列，来源：09_Consistency_Detail</span></div>
+  return `<div class="card chart-panel consistency-detail-panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h2>${copy("pages.performance.consistencyDetailTitle","一致性观察完整明细表")}</h2><span class="badge">${fmt(rows.length)} 行 × ${fmt(cols.length)} 列</span></div>
     <div class="detail-scroll"><table class="detail-table"><thead><tr>${cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>
       ${rows.map(r=>`<tr>${cols.map(c=>`<td>${esc(r[c])}</td>`).join("")}</tr>`).join("")}
     </tbody></table></div>
-    <div class="footer-note">该表直接读取 Data 中 xlsx 的 09_Consistency_Detail sheet；包含博主、品牌、月份、链接率、样本 URL、CTA、最高/最低品牌与链路分差等完整字段。</div>
+    <div class="footer-note">该表展示多品牌博主在不同品牌之间的链路差异，包含品牌、月份、链接率、样本 URL、CTA、最高/最低品牌与链路分差等字段。</div>
   </div>`;
 }
 function renderPerformance(){
@@ -655,13 +681,38 @@ function terminalTable(){
   ${rows.map(r=>`<tr><td>${r[0]}</td>${r.slice(1).map(v=>`<td class="${cls(v)}">${v}</td>`).join("")}</tr>`).join("")}</tbody></table>
   <div class="footer-note">${copy("notes.terminalTable","定性等级直接读取 xlsx 的 10_Terminal_Design sheet。")}</div></div>`;
 }
+
+function terminalProductValue(){
+  const cfg = copy("terminalProductValue", {});
+  const items = cfg.items || [];
+  if(!items.length) return "";
+  return `<div class="card terminal-product-value">
+    <div class="terminal-product-head">
+      <div>
+        <div class="eyebrow">${cfg.eyebrow || "产品意义"}</div>
+        <h2>${cfg.title || "调研意义"}</h2>
+        <p>${cfg.subtitle || ""}</p>
+      </div>
+    </div>
+    <div class="terminal-product-grid">
+      ${items.map((it,i)=>`<div class="terminal-product-item">
+        <div class="terminal-product-num">${i+1}</div>
+        <div class="terminal-product-title">${it.title}</div>
+        <div class="terminal-product-body">${it.text}</div>
+      </div>`).join("")}
+    </div>
+    ${cfg.summary ? `<div class="terminal-product-summary">${cfg.summary}</div>` : ""}
+  </div>`;
+}
+
 function renderTerminal(){
   document.querySelector("#terminal").innerHTML = header(copy("pages.terminal.title","终端承接"), copy("pages.terminal.subtitle","从 KOL 点击后，用户是否能顺利完成下一步？"))+
   `<div class="card chart-panel"><h2>${copy("pages.terminal.mechanismTitle","渠道机制与 CTA 承接")}</h2><div class="grid terminal-cards">
     ${(ACTIVE_DATA.terminalMechanisms || []).map(mechanismCard).join("")}
   </div></div>
   ${pathCards("terminal")}
-  <div class="compare-grid">${terminalTable()}${insightPanel(copy("pages.terminal.insightTitle","关键结论"), insightItems("terminal"))}</div>`;
+  <div class="compare-grid">${terminalTable()}${insightPanel(copy("pages.terminal.insightTitle","关键结论"), insightItems("terminal"))}</div>
+  ${terminalProductValue()}`;
 }
 function showPage(id){
   document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));
