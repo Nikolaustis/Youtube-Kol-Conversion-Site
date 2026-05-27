@@ -490,7 +490,7 @@ function radarSvg(){
   const vals = {};
   keys.forEach((k, idx) => { vals[k] = convMetrics.map(r => Number(r[idx+1] || 0)); });
   const metricMaxes = labels.map((_,i)=> niceMetricMax(Math.max(...keys.map(k => Number(vals[k][i] || 0))) * 1.08));
-  const cx=300, cy=225, r=165;
+  const cx=300, cy=250, r=165;
   const pt=(v,i,rr=r)=>{
     const a=(-90+i*360/labels.length)*Math.PI/180;
     const denom = metricMaxes[i] || 100;

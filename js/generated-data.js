@@ -3775,7 +3775,7 @@ window.KOL_DATA = {
   "meta": {
     "source": "C:\\Users\\Og\\.codex\\skills\\youtube-kol-conversion-chain-skill\\Data\\youtube_kol_web_data_statistics.xlsx",
     "sourceType": "statistics_workbook",
-    "generatedAt": "2026-05-27T10:16:04.471347+00:00",
+    "generatedAt": "2026-05-27T10:28:30.856592+00:00",
     "monthsDetected": 12,
     "eligibleKolVideoRows": 1913,
     "conversionRowsMatchedToKol": 1913,

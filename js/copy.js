@@ -118,7 +118,7 @@ window.WEB_COPY = {
   },
   paths: {
     conversion: [
-      { brand: "UgPhone", steps: ["YouTube KOL 视频", "邀请码 / Referral / Promotion Link", "社群入口 / 使用说明 / 教程内容", "下载、注册、使用、复购"], text: "UgPhone 的链路核心是 code + 社群承接。它通过邀请码、referral、社群和教程说明，把 KOL 内容从单次曝光延伸到可继续追踪和承接的使用路径。" },
+      { brand: "UgPhone", steps: ["YouTube KOL 视频", "邀请码 / 推广链接", "社群入口 / 使用说明 / 教程内容", "下载、注册、使用、复购"], text: "UgPhone 的链路核心是 code + 社群承接。它通过邀请码、referral、社群和教程说明，把 KOL 内容从单次曝光延伸到可继续追踪和承接的使用路径。" },
       { brand: "VSPhone", steps: ["YouTube KOL 视频", "官网链接 / Ref / UTM", "官网承接 / 社群支持", "注册、试用或进一步咨询"], text: "VSPhone 的核心特征是官网追踪和社群承接。它更倾向于把 KOL 流量导向官网或支持入口，形成较明确的官方路径。" },
       { brand: "RedFinger", steps: ["YouTube KOL 视频", "零散链接 / 弱承接入口", "用户自行搜索或咨询", "路径断裂风险较高"], text: "RedFinger 的曝光并不缺失，但转化路径整体偏弱。大量内容没有形成明确的官网、code、社群或购买承接，更接近品牌存在感曝光，而不是完整转化链路。" },
       { brand: "LDCloud", steps: ["YouTube KOL 视频", "官网 / 创作者追踪链接", "折扣码 / 社群入口", "试用、下载或官网继续转化"], text: "LDCloud 的链路标准化程度较高。它更像是以官网、创作者链接、code 和社群入口组合承接流量的小规模高质量样本。" }
