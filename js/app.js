@@ -38,8 +38,8 @@ function conversionChainTooltipHtml(){
     <div class="tt-body">指 KOL 视频从曝光到下一步行动的完整路径，包含链接、邀请码、购买引导、社群入口、下载页、专属链接或明确购买指导等承接节点。</div>
     <div class="tt-row"><span><i style="background:#98a2b3"></i>0 分</span><b>没有链接、邀请码、购买引导或社群入口</b></div>
     <div class="tt-row"><span><i style="background:#f04438"></i>1 分</span><b>只有品牌名、官网首页或应用商店链接，转化路径较弱</b></div>
-    <div class="tt-row"><span><i style="background:#ffb12e"></i>2 分</span><b>有官网、下载页、购买页或社群链接，用户可继续行动</b></div>
-    <div class="tt-row"><span><i style="background:#12b76a"></i>3 分</span><b>有邀请码、折扣码、专属链接、购买页、分销入口或明确购买指导</b></div>`;
+    <div class="tt-row"><span><i style="background:#ffb12e"></i>2 分</span><b>有官网、Web 端、App 或官方社群链接，用户可继续行动</b></div>
+    <div class="tt-row"><span><i style="background:#12b76a"></i>3 分</span><b>有邀请码、折扣码、专属链接、Referral / Creator Link 或明确权益承接</b></div>`;
 }
 function wrapConversionChainTextNode(textNode, html){
   const text = textNode.nodeValue;

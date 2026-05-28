@@ -64,11 +64,12 @@ window.WEB_COPY = {
     channelSeries: "覆盖博主数（博主）",
     quantityAxis: "数量",
     officialLinkRate: "官网链接率",
-    buyPageRate: "购买页直达率",
+    webPortalRate: "Web端导流率",
+    buyPageRate: "Web端导流率",
     appStoreRate: "App 导流率",
     codeReferralRate: "Code/Referral 率",
     socialRate: "社群导流率",
-    shortlinkRate: "短链率",
+    shortlinkRate: "已移除指标",
     multiBrandChannelShare: "多品牌博主占比",
     multiBrandVideoShare: "多品牌博主贡献视频占比",
     subscriberBuckets: ["0–10k", "10k–50k", "50k+"],
@@ -83,7 +84,7 @@ window.WEB_COPY = {
   insights: {
     home: [
       { brand: "UgPhone", icon: "🔗", title: "UgPhone：规模领先，链路较完整", text: "UgPhone 在视频数量和博主覆盖上保持领先，同时 code、社群和官网承接也相对完整。它不是单纯依靠内容曝光，而是已经把 KOL 视频较系统地接入可继续行动的转化路径。" },
-      { brand: "LDCloud", icon: "★", title: "LDCloud：规模不大，但链路质量突出", text: "LDCloud 的内容规模不大，但转化链路质量更集中。官网、创作者链接、code 和社群入口之间的关系更清晰，呈现出小规模、高标准承接的特点。" },
+      { brand: "LDCloud", icon: "★", title: "LDCloud：规模不大，但链路质量突出", text: "LDCloud 的内容规模不大，但转化链路质量更集中。官网、creator link、code 和社群入口之间的关系更清晰，呈现出小规模、高标准承接的特点。" },
       { brand: "VSPhone", icon: "◎", title: "VSPhone：官网追踪和社群承接清晰", text: "VSPhone 的优势集中在官网追踪和社群承接上。它更倾向于把 KOL 流量导向官网、ref 路径或后续支持入口，整体打法更偏向清晰路径而非大规模铺量。" },
       { brand: "RedFinger", icon: "⚠", title: "RedFinger：有曝光，但承接偏弱", text: "RedFinger 仍具备一定 YouTube 存在感，但官网、code、社群和购买引导之间的连接不够稳定。它的问题不在于完全没有内容，而在于曝光之后缺少统一、可追踪的下一步。" }
     ],
@@ -96,7 +97,7 @@ window.WEB_COPY = {
     ],
     conversion: [
       { brand: "UgPhone", icon: "🔗", title: "UgPhone：规模与链路完整度同时成立", text: "UgPhone 不只是 KOL 覆盖规模最大，它的 code、社群和官网承接也较完整，因此更接近成熟的 KOL 转化链路。" },
-      { brand: "LDCloud", icon: "★", title: "LDCloud：链路质量最突出", text: "LDCloud 的优势不是铺量，而是链路质量。它在官网承接、创作者链接、code 和社群组合上最集中，是小规模高质量承接的代表。" },
+      { brand: "LDCloud", icon: "★", title: "LDCloud：链路质量最突出", text: "LDCloud 的优势不是铺量，而是链路质量。它在官网承接、creator link、code 和社群组合上最集中，是小规模高质量承接的代表。" },
       { brand: "VSPhone", icon: "◎", title: "VSPhone：官网追踪和社群承接明确", text: "VSPhone 的官网承接和社群导流特征较清楚。它更适合被理解为“路径明确型品牌”，而不是大规模覆盖型品牌。" },
       { brand: "RedFinger", icon: "⚠", title: "RedFinger：最大短板是官方承接不足", text: "RedFinger 的曝光不弱，但官方承接链路明显不足。它更偏曝光存在型品牌，而不是转化链路成熟型品牌。" },
       { brand: "VSPhone", icon: "▣", title: "转化层总结", text: "四家品牌都不是典型的“视频直达购买”模式。真正影响转化质量的是：KOL 视频之后，用户是否能被顺畅导向官网、code、社群、教程、下载或购买路径。" }
@@ -110,24 +111,24 @@ window.WEB_COPY = {
     ],
     terminal: [
       { brand: "UgPhone", icon: "🔗", title: "UgPhone：多点承接", text: "UgPhone 的优势在于链路完整度。Code、referral、社群和教程共同降低用户理解成本和行动成本，使用户看完 KOL 视频后仍有清晰的下一步。" },
-      { brand: "LDCloud", icon: "★", title: "LDCloud：标准化链路", text: "LDCloud 的优势在于链路质量。创作者链接、code、官网和社群承接较完整，说明标准化链路本身能够有效降低用户行动成本。" },
-      { brand: "VSPhone", icon: "◎", title: "VSPhone：官网分销入口明显，但 KOL 侧承接偏浅", text: "VSPhone 将推广奖励和分享计划放在官网明面上，说明其获客路径较为依赖官网分销入口。数据中邀请码、折扣码等 KOL 侧承接内容较少，侧面说明其公开分销入口与博主内容执行之间可能没有被稳定打通。" },
-      { brand: "RedFinger", icon: "⚠", title: "RedFinger：后链路断裂", text: "RedFinger 有曝光，但官网、邀请码、社群和购买路径之间没有形成统一承接。用户可能知道品牌，却不一定能顺畅进入下载、注册或使用行为。" },
+      { brand: "LDCloud", icon: "★", title: "LDCloud：标准化链路", text: "LDCloud 的优势在于链路质量。Creator link、code、官网和社群承接较完整，说明标准化链路本身能够有效降低用户行动成本。" },
+      { brand: "VSPhone", icon: "◎", title: "VSPhone：官网分销入口明显，但 KOL 侧承接偏浅", text: "VSPhone 将推广奖励和分享计划放在官网明面上，说明其获客路径高度依赖官网分销入口。数据中邀请码、折扣码等 KOL 侧承接内容较少，侧面说明其公开分销入口与博主内容执行之间可能没有被稳定打通。" },
+      { brand: "RedFinger", icon: "⚠", title: "RedFinger：后链路断裂", text: "RedFinger 有曝光，但官网、code、社群和购买路径之间没有形成统一承接。用户可能知道品牌，却不一定能顺畅进入下载、注册或使用行为。" },
       { brand: "UgPhone", icon: "▣", title: "终端承接总结", text: "终端承接决定了 KOL 内容能否从“被看见”转化为“被使用”。四家对比中，UgPhone 的链路最接近完整闭环，LDCloud 的标准化承接质量较高，VSPhone 具备官网分销入口和社群承接基础，RedFinger 则主要受限于曝光后的路径断裂。" }
     ]
   },
   paths: {
     conversion: [
-      { brand: "UgPhone", steps: ["YouTube KOL 视频", "邀请码 / 推广链接", "社群入口 / 使用说明 / 教程内容", "下载、注册、使用、复购"], text: "UgPhone 的链路核心是 code + 社群承接。它通过邀请码、referral、社群和教程说明，把 KOL 内容从单次曝光延伸到可继续追踪和承接的使用路径。" },
+      { brand: "UgPhone", steps: ["YouTube KOL 视频", "邀请码 / Referral / Promotion Link", "社群入口 / 使用说明 / 教程内容", "下载、注册、使用、复购"], text: "UgPhone 的链路核心是 code + 社群承接。它通过邀请码、referral、社群和教程说明，把 KOL 内容从单次曝光延伸到可继续追踪和承接的使用路径。" },
       { brand: "VSPhone", steps: ["YouTube KOL 视频", "官网链接 / Ref / UTM", "官网承接 / 社群支持", "注册、试用或进一步咨询"], text: "VSPhone 的核心特征是官网追踪和社群承接。它更倾向于把 KOL 流量导向官网或支持入口，形成较明确的官方路径。" },
       { brand: "RedFinger", steps: ["YouTube KOL 视频", "零散链接 / 弱承接入口", "用户自行搜索或咨询", "路径断裂风险较高"], text: "RedFinger 的曝光并不缺失，但转化路径整体偏弱。大量内容没有形成明确的官网、code、社群或购买承接，更接近品牌存在感曝光，而不是完整转化链路。" },
-      { brand: "LDCloud", steps: ["YouTube KOL 视频", "官网 / 创作者追踪链接", "折扣码 / 社群入口", "试用、下载或官网继续转化"], text: "LDCloud 的链路标准化程度较高。它更像是以官网、创作者链接、code 和社群入口组合承接流量的小规模高质量样本。" }
+      { brand: "LDCloud", steps: ["YouTube KOL 视频", "官网 / Creator Tracking Link", "Discount Code / 社群入口", "试用、下载或官网继续转化"], text: "LDCloud 的链路标准化程度较高。它更像是以官网、creator link、code 和社群入口组合承接流量的小规模高质量样本。" }
     ],
     terminal: [
-      { brand: "UgPhone", steps: ["YouTube KOL 视频", "Invitation Code / 推荐链接", "社群入口 / 使用说明 / 教程内容", "注册、试用、使用、复购"], text: "UgPhone 的路径设计重点是把内容兴趣转化为产品行为。用户看完视频后，不只知道 UgPhone 是什么，也能通过邀请码、社群和使用教程继续完成注册、试用和使用。" },
+      { brand: "UgPhone", steps: ["YouTube KOL 视频", "Invitation Code / Referral Link", "社群入口 / 使用说明 / 教程内容", "注册、试用、使用、复购"], text: "UgPhone 的路径设计重点是把内容兴趣转化为产品行为。用户看完视频后，不只知道 UgPhone 是什么，也能通过邀请码、社群和使用教程继续完成注册、试用和使用。" },
       { brand: "VSPhone", steps: ["YouTube KOL 视频", "官网 Ref / UTM 链接", "官网推广奖励 / 社群支持", "注册、试用或进一步咨询"], text: "VSPhone 的路径更偏官网追踪和公开分销入口。官网明面展示推广奖励，说明其鼓励用户通过分享计划获佣；但 KOL 内容中具体邀请码和折扣码较少，意味着用户往往先被导向官网，再由官网承担后续解释和转化。" },
       { brand: "RedFinger", steps: ["YouTube KOL 视频", "零散入口 / 弱承接信息", "用户自行搜索或咨询", "转化路径容易中断"], text: "RedFinger 的路径问题在于承接不够统一。用户可能看到了产品，但缺少清晰的下一步入口，容易停留在“知道品牌”阶段，而无法顺畅进入下载、注册或购买行为。" },
-      { brand: "LDCloud", steps: ["YouTube KOL 视频", "官网 / 创作者追踪链接", "折扣码 / 社群入口", "试用、下载或官网继续转化"], text: "LDCloud 的路径更重视标准化承接。创作者链接、code 和社群入口能够把内容兴趣导向后续行动，整体链路短、路径清楚，用户理解和行动成本较低。" }
+      { brand: "LDCloud", steps: ["YouTube KOL 视频", "官网 / Creator Tracking Link", "Discount Code / 社群入口", "试用、下载或官网继续转化"], text: "LDCloud 的路径更重视标准化承接。Creator link、code 和社群入口能够把内容兴趣导向后续行动，整体链路短、路径清楚，用户理解和行动成本较低。" }
     ]
   },
   ugphoneBriefChain: {
@@ -156,12 +157,12 @@ window.WEB_COPY = {
     title: "调研意义",
     subtitle: "KOL 渠道不是单纯内容曝光，而是用户进入产品的第一条路径。终端承接分析可以帮助判断：用户是否看得懂、是否愿意点、是否知道如何开始使用。",
     items: [
-      { title: "KOL视频本质上是产品获客链路设计", text: "给博主的视频发布要求并不只是内容规范，而是用官网展示、游戏场景、邀请码权益、社群链接和评论区链接，共同搭建用户从“看懂产品”到“开始行动”的路径。" },
+      { title: "KOL Brief 本质上是产品获客链路设计", text: "UgPhone 给博主的发布要求并不只是内容规范，而是用官网展示、游戏场景、邀请码权益、社群链接和评论区链接，共同搭建用户从“看懂产品”到“开始行动”的路径。" },
       { title: "产品侧需要持续降低用户行动成本", text: "用户产生兴趣后，是否能立刻找到官网、邀请码、社群、下载或购买入口，直接影响转化效率。链接、code 和社群承接越清晰，兴趣到使用的路径就越短。" },
-      { title: "渠道数据可以反向优化产品承接", text: "下一步的工作，可以通过对比不同品牌的终端承接，反向判断哪些节点最有效：官网入口、邀请码、社群支持、使用教程还是购买指导。这些信息可用于优化落地页、邀请机制、新手引导和社群承接。" },
-      { title: "竞争重点是提升链路效率", text: "未来KOL渠道的关键除了找到更多博主，也在于让每条内容更稳定地完成产品认知、场景教育、权益激励和行动承接。提升链路效率，本质上就是提升产品获客效率。" }
+      { title: "渠道数据可以反向优化产品承接", text: "通过对比不同品牌的终端承接，可以反向判断哪些节点最有效：官网入口、邀请码、社群支持、使用教程还是购买指导。这些信息可用于优化落地页、邀请机制、新手引导和社群承接。" },
+      { title: "竞争重点是提升链路效率", text: "未来 KOL 渠道的关键不只是找到更多博主，而是让每条内容更稳定地完成产品认知、场景教育、权益激励和行动承接。提升链路效率，本质上就是提升产品获客效率。" }
     ],
-    summary: "本次调研的价值不止在于评估 YouTube KOL 渠道表现，更在于识别获客链路中的关键承接节点：用户是否看得懂、是否愿意点、是否知道如何开始使用，以及是否能从一次内容触达进入长期使用路径。"
+    summary: "因此，本次调研的价值不止在于评估 YouTube KOL 渠道表现，更在于帮助 UgPhone 从产品视角识别获客链路中的关键承接节点：用户是否看得懂、是否愿意点、是否知道如何开始使用，以及是否能从一次内容触达进入长期使用路径。"
   },
   terminalMechanismSummary: {
     UgPhone: "Code + 社群多点承接",
