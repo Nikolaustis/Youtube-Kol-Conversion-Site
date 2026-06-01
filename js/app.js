@@ -38,8 +38,8 @@ function conversionChainTooltipHtml(){
     <div class="tt-body">指 KOL 视频从曝光到下一步行动的完整路径，包含链接、邀请码、购买引导、社群入口、下载页、专属链接或明确购买指导等承接节点。</div>
     <div class="tt-row"><span><i style="background:#98a2b3"></i>0 分</span><b>没有链接、邀请码、购买引导或社群入口</b></div>
     <div class="tt-row"><span><i style="background:#f04438"></i>1 分</span><b>只有品牌名、官网首页或应用商店链接，转化路径较弱</b></div>
-    <div class="tt-row"><span><i style="background:#ffb12e"></i>2 分</span><b>有官网、Web 端、App 或官方社群链接，用户可继续行动</b></div>
-    <div class="tt-row"><span><i style="background:#12b76a"></i>3 分</span><b>有邀请码、折扣码、专属链接、Referral / Creator Link 或明确权益承接</b></div>`;
+    <div class="tt-row"><span><i style="background:#ffb12e"></i>2 分</span><b>有官网、下载页、购买页或社群链接，用户可继续行动</b></div>
+    <div class="tt-row"><span><i style="background:#12b76a"></i>3 分</span><b>有邀请码、折扣码、专属链接、购买页、分销入口或明确购买指导</b></div>`;
 }
 function wrapConversionChainTextNode(textNode, html){
   const text = textNode.nodeValue;
@@ -490,7 +490,7 @@ function radarSvg(){
   const vals = {};
   keys.forEach((k, idx) => { vals[k] = convMetrics.map(r => Number(r[idx+1] || 0)); });
   const metricMaxes = labels.map((_,i)=> niceMetricMax(Math.max(...keys.map(k => Number(vals[k][i] || 0))) * 1.08));
-  const cx=300, cy=250, r=165;
+  const cx=300, cy=255, r=145;
   const pt=(v,i,rr=r)=>{
     const a=(-90+i*360/labels.length)*Math.PI/180;
     const denom = metricMaxes[i] || 100;
@@ -642,6 +642,8 @@ function terminalMechanismSummary(brand){
 function terminalMetricMeta(label){
   if(label.includes("官网链接率")) return {key:"officialLinkRate", suffix:"%"};
   if(label.includes("Code/Referral")) return {key:"codeReferralRate", suffix:"%"};
+  if(label.includes("App导流率") || label.includes("App 导流率")) return {key:"appStoreRate", suffix:"%"};
+  if(label.includes("Web端导流率") || label.includes("Web 端导流率")) return {key:"webPortalRate", suffix:"%"};
   if(label.includes("社群导流率")) return {key:"socialRate", suffix:"%"};
   if(label.includes("平均链路清晰度")) return {key:"score", suffix:" / 3"};
   return null;
